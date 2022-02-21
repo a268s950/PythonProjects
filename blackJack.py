@@ -25,6 +25,40 @@ class Card:
         return self.rank + " of " + self.suit 
 
 
+class Deck:
+    """
+    A class used to represent a Deck
+    ...
+    Attributes
+    ----------
+    all_cards : list
+    	all the card combinations
+    
+    Methods
+    -------
+    shuffle()
+        randomly shuffles the cards
+    deal_one()
+        deals one card
+    """
+    
+    def __init__(self):
+        # Attribute called all_cards
+        self.all_cards = []
+        
+        for suit in suits:
+            for rank in ranks:
+                # Create the Card Object
+                created_card = Card(suit,rank)
+                
+                self.all_cards.append(created_card)
+    
+    def shuffle(self):
+        random.shuffle(self.all_cards)
+        
+    def deal_one(self):
+        return self.all_cards.pop()
+
 
 suits =('Hearts', 'Diamonds', 'Spades', 'Clubs')
 ranks = ('Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace')
